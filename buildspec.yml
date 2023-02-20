@@ -1,5 +1,10 @@
 version: 0.2
 
+env:
+  parameter-store:
+    DOCKER_USERNAME: /myapp/docker/username
+    DOCKER_PASSWORD: /myapp/docker/password
+
 phases:
   install:
     runtime-versions:
