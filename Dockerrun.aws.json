@@ -24,44 +24,7 @@
             "name": "app",
             "image": "absharhassan/sims-app-main-image",
             "essential": true,
-            "memory": 1024,
-            "links": ["db"]
-        },
-        {
-            "name": "mysql",
-            "image": "mysql:8.0",
-            "essential": true,
-            "memory": 1024,
-            "portMappings": [
-                {
-                    "containerPort": 3306,
-                    "hostPort": 3306
-                }
-            ],
-            "environment": [
-                {
-                    "name": "MYSQL_DATABASE",
-                    "value": "${env:DB_DATABASE}"
-                },
-                {
-                    "name": "MYSQL_USER",
-                    "value": "${env:DB_DATABASE}"
-                },
-                {
-                    "name": "MYSQL_PASSWORD",
-                    "value": "${env:DB_PASSWORD}"
-                },
-                {
-                    "name": "MYSQL_ROOT_PASSWORD",
-                    "value": "${env:DB_PASSWORD}"
-                }
-            ],
-            "mountPoints": [
-                {
-                    "sourceVolume": "mysql-data",
-                    "containerPath": "/var/lib/mysql"
-                }
-            ]
+            "memory": 1024
         }
     ],
     "volumes": [
@@ -69,12 +32,6 @@
             "name": "nginx-conf",
             "host": {
                 "sourcePath": "./nginx/conf.d/default.conf"
-            }
-        },
-        {
-            "name": "mysql-data",
-            "host": {
-                "sourcePath": "./mysql"
             }
         }
     ]
