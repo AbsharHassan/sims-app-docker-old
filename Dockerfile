@@ -40,14 +40,14 @@ COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
 # RUN chmod -R 755 /bootstrap
 
 # Install npm dependencies
-RUN npm install
+# RUN npm install
 
 # # Create Vue.js prod build
 # # RUN chown -R 33:33 "/root/.npm"
-RUN npm run prod
+# RUN npm run prod
 
 # Install Composer dependencies
-RUN composer install 
+# RUN composer install 
 
 
 # # Start the PHP built-in web server
